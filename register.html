@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PG Hostel Registration - AMMA Rajini Boys Hostel</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    
+    .container {
+      max-width: 500px;
+      width: 100%;
+      background: white;
+      border-radius: 20px;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+      padding: 40px 35px;
+      position: relative;
+      overflow: hidden;
+      animation: slideUp 0.8s ease-out;
+    }
+    
+    @keyframes slideUp {
+      from {
+        opacity: 0;
+        transform: translateY(50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    .container::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 5px;
+      background: linear-gradient(45deg, #667eea, #764ba2, #f093fb, #f5576c);
+      background-size: 400% 400%;
+      animation: gradientShift 3s ease infinite;
+    }
+    
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    
+    .header {
+      text-align: center;
+      margin-bottom: 35px;
+    }
+    
+    .header h2 {
+      font-size: 2.2rem;
+      color: #667eea;
+      margin-bottom: 8px;
+      animation: fadeInDown 1s ease-out 0.3s both;
+    }
+    
+    .header p {
+      color: #666;
+      font-size: 1rem;
+      animation: fadeInUp 1s ease-out 0.5s both;
+    }
+    
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    .form-group {
+      margin-bottom: 25px;
+      position: relative;
+      animation: slideInLeft 0.8s ease-out both;
+    }
+    
+    .form-group:nth-child(even) {
+      animation-delay: 0.1s;
+    }
+    
+    .form-group:nth-child(odd) {
+      animation-delay: 0.2s;
+    }
+    
+    @keyframes slideInLeft {
+      from {
+        opacity: 0;
+        transform: translateX(-30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+    
+    label {
+      display: block;
+      margin-bottom: 8px;
+      color: #667eea;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: color 0.3s ease;
+    }
+    
+    .input-container {
+      position: relative;
+    }
+    
+    input, select, textarea {
+      width: 100%;
+      padding: 15px 20px;
+      border: 2px solid #e1e8ed;
+      border-radius: 12px;
+      font-size: 16px;
+      transition: all 0.3s ease;
+      background: #f8f9ff;
+    }
+    
+    input:focus, select:focus, textarea:focus {
+      outline: none;
+      border-color: #667eea;
+      background: white;
+      box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+      transform: translateY(-2px);
+    }
+    
+    input:focus + .input-icon, select:focus + .input-icon {
+      color: #667eea;
+      transform: scale(1.1);
+    }
+    
+    .input-icon {
+      position: absolute;
+      right: 15px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #ccc;
+      font-size: 1.2rem;
+      transition: all 0.3s ease;
+    }
+    
+    textarea {
+      resize: vertical;
+      min-height: 80px;
+    }
+    
+    .submit-btn {
+      width: 100%;
+      background: linear-gradient(45deg, #667eea, #764ba2);
+      color: white;
+      border: none;
+      padding: 18px;
+      border-radius: 12px;
+      font-size: 1.1rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+      animation: pulse 2s infinite;
+    }
+    
+    @keyframes pulse {
+      0% {
+        box-shadow: 0 0 0 0 rgba(102, 126, 234, 0.4);
+      }
+      70% {
+        box-shadow: 0 0 0 10px rgba(102, 126, 234, 0);
+      }
+      100% {
+        box-shadow: 0 0 0 0 rgba(102, 126, 234, 0);
+      }
+    }
+    
+    .submit-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
+      animation: none;
+    }
+    
+    .submit-btn:active {
+      transform: translateY(0);
+    }
+    
+    .back-link {
+      display: block;
+      text-align: center;
+      margin-top: 25px;
+      color: #667eea;
+      text-decoration: none;
+      font-size: 1rem;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      animation: fadeIn 1s ease-out 1s both;
+    }
+    
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    
+    .back-link:hover {
+      color: #764ba2;
+      transform: translateX(-5px);
+    }
+    
+    .success-message {
+      background: linear-gradient(45deg, #4caf50, #45a049);
+      color: white;
+      padding: 15px;
+      border-radius: 12px;
+      text-align: center;
+      margin-bottom: 20px;
+      font-weight: 600;
+      animation: bounceIn 0.8s ease-out;
+    }
+    
+    @keyframes bounceIn {
+      0% {
+        opacity: 0;
+        transform: scale(0.3);
+      }
+      50% {
+        opacity: 1;
+        transform: scale(1.05);
+      }
+      70% {
+        transform: scale(0.9);
+      }
+      100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+    
+    /* Loading animation for button */
+    .loading {
+      position: relative;
+      color: transparent;
+    }
+    
+    .loading::after {
+      content: '';
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      top: 50%;
+      left: 50%;
+      margin-left: -10px;
+      margin-top: -10px;
+      border: 2px solid transparent;
+      border-top-color: #ffffff;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+    
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    
+    /* Responsive design */
+    @media (max-width: 600px) {
+      .container {
+        margin: 20px;
+        padding: 30px 25px;
+      }
+      
+      .header h2 {
+        font-size: 1.8rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h2>🏠 PG Hostel Registration</h2>
+      <p>Join AMMA Rajini Boys Hostel Family</p>
+    </div>
+    
+    <form id="registerForm" autocomplete="off">
+      <div class="form-group">
+        <label for="name">Full Name <span style="color:#ff4d4d;">*</span></label>
+        <div class="input-container">
+          <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+          <span class="input-icon">👤</span>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="mobile">Phone Number <span style="color:#ff4d4d;">*</span></label>
+        <div class="input-container">
+          <input type="tel" id="mobile" name="mobile" pattern="[0-9]{10,12}" placeholder="Enter 10-digit mobile number" required>
+          <span class="input-icon">📱</span>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="age">Age</label>
+        <div class="input-container">
+          <input type="number" id="age" name="age" min="15" max="40" placeholder="Enter your age">
+          <span class="input-icon">🎂</span>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="institute">School/College/Workplace</label>
+        <div class="input-container">
+          <input type="text" id="institute" name="institute" placeholder="Enter institution or workplace name">
+          <span class="input-icon">🏫</span>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="course">Course/Occupation</label>
+        <div class="input-container">
+          <input type="text" id="course" name="course" placeholder="E.g., B.Tech, MBA, Software Engineer">
+          <span class="input-icon">📚</span>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="address">Permanent Address</label>
+        <div class="input-container">
+          <textarea id="address" name="address" placeholder="Enter your complete address with city and state"></textarea>
+          <span class="input-icon">📍</span>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="room-type">Room Preference</label>
+        <div class="input-container">
+          <select id="room-type" name="room-type">
+            <option value="">Select room type</option>
+            <option value="single">Single Room</option>
+            <option value="double">Double Sharing</option>
+            <option value="triple">Triple Sharing</option>
+            <option value="dormitory">Dormitory</option>
+          </select>
+          <span class="input-icon">🛏️</span>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="additional-info">Additional Information (Optional)</label>
+        <div class="input-container">
+          <textarea id="additional-info" name="additional-info" placeholder="Any special requirements or additional information"></textarea>
+          <span class="input-icon">💬</span>
+        </div>
+      </div>
+
+      <button type="submit" class="submit-btn" id="submitBtn">
+        Register Now
+      </button>
+      
+      <div id="successMsg" class="success-message" style="display:none;">
+        ✅ Registration submitted successfully! We will contact you shortly.
+      </div>
+    </form>
+    
+    <a href="/index.html" class="back-link">← Back to Home</a>
+  </div>
+
+  <script>
+    document.getElementById('registerForm').onsubmit = async function(e) {
+      e.preventDefault();
+      
+      const submitBtn = document.getElementById('submitBtn');
+      const successMsg = document.getElementById('successMsg');
+      
+      // Show loading state
+      submitBtn.classList.add('loading');
+      submitBtn.disabled = true;
+      
+      // Collect form data
+      const formData = {
+        name: document.getElementById('name').value,
+        mobile: document.getElementById('mobile').value,
+        age: document.getElementById('age').value,
+        institute: document.getElementById('institute').value,
+        course: document.getElementById('course').value,
+        address: document.getElementById('address').value,
+        roomType: document.getElementById('room-type').value,
+        additionalInfo: document.getElementById('additional-info').value
+      };
+      
+      try {
+        // Send data to backend
+        const response = await fetch('/register', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(formData)
+        });
+        const result = await response.json();
+        if (result.success) {
+          successMsg.style.display = 'block';
+          document.getElementById('registerForm').reset();
+          setTimeout(() => {
+            alert('Registration submitted successfully! We will contact you within 24 hours.');
+            window.location.href = 'Webpage.html';
+          }, 1000);
+        } else {
+          alert('Registration failed: ' + (result.error || 'Unknown error'));
+        }
+      } catch (err) {
+        alert('Registration failed. Please try again later.');
+        console.error('Registration error:', err);
+      } finally {
+        submitBtn.classList.remove('loading');
+        submitBtn.disabled = false;
+      }
+    };
+
+    // Add input validation feedback
+    document.querySelectorAll('input, select, textarea').forEach(input => {
+      input.addEventListener('blur', function() {
+        if(this.hasAttribute('required') && this.value.trim() === '') {
+          this.style.borderColor = '#ff6b6b';
+        } else {
+          this.style.borderColor = '#4caf50';
+        }
+      });
+    });
+  </script>
+</body>
+</html>

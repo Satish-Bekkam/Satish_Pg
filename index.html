@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AMMA Rajini Boys PG Hostel - Nuzvid</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+    }
+    
+    /* Header with animated background */
+    header {
+      background: linear-gradient(45deg, #667eea, #764ba2, #f093fb, #f5576c);
+      background-size: 400% 400%;
+      animation: gradientShift 6s ease infinite;
+      color: white;
+      text-align: center;
+      padding: 60px 20px;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    
+    header::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0,0,0,0.3);
+      z-index: 1;
+    }
+    
+    header * {
+      position: relative;
+      z-index: 2;
+    }
+    
+    header h1 {
+      font-size: 3.5rem;
+      margin-bottom: 10px;
+      animation: slideInDown 1s ease-out;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    }
+    
+    header p {
+      font-size: 1.3rem;
+      margin-bottom: 25px;
+      animation: slideInUp 1s ease-out 0.3s both;
+    }
+    
+    .cta-button {
+      display: inline-block;
+      padding: 15px 30px;
+      background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+      color: white;
+      text-decoration: none;
+      border-radius: 50px;
+      font-weight: bold;
+      font-size: 1.1rem;
+      transition: all 0.3s ease;
+      animation: pulse 2s infinite;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    }
+    
+    .cta-button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+    }
+    
+    @keyframes slideInDown {
+      from { opacity: 0; transform: translateY(-50px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    @keyframes slideInUp {
+      from { opacity: 0; transform: translateY(50px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(255, 107, 107, 0.7); }
+      70% { box-shadow: 0 0 0 10px rgba(255, 107, 107, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(255, 107, 107, 0); }
+    }
+    
+    /* Main content */
+    main {
+      background: white;
+      margin: -30px auto 0;
+      max-width: 1200px;
+      border-radius: 20px 20px 0 0;
+      box-shadow: 0 -5px 20px rgba(0,0,0,0.1);
+      position: relative;
+      z-index: 3;
+    }
+    
+    section {
+      padding: 40px 30px;
+    }
+    
+    .intro {
+      text-align: center;
+      padding: 50px 30px 30px;
+    }
+    
+    .intro h2 {
+      font-size: 2.5rem;
+      color: #667eea;
+      margin-bottom: 20px;
+      animation: fadeInUp 1s ease-out 0.5s both;
+    }
+    
+    .intro p {
+      font-size: 1.2rem;
+      color: #666;
+      max-width: 700px;
+      margin: 0 auto;
+      animation: fadeInUp 1s ease-out 0.7s both;
+    }
+    
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    /* Features section */
+    .features-title {
+      text-align: center;
+      font-size: 2.5rem;
+      color: #667eea;
+      margin-bottom: 40px;
+      position: relative;
+    }
+    
+    .features-title::after {
+      content: '';
+      display: block;
+      width: 100px;
+      height: 4px;
+      background: linear-gradient(45deg, #667eea, #764ba2);
+      margin: 15px auto;
+      border-radius: 2px;
+    }
+    
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+    
+    .card {
+      background: white;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+      animation: cardSlideIn 0.8s ease-out both;
+    }
+    
+    .card:nth-child(even) {
+      animation-delay: 0.2s;
+    }
+    
+    .card:nth-child(odd) {
+      animation-delay: 0.4s;
+    }
+    
+    @keyframes cardSlideIn {
+      from { opacity: 0; transform: translateY(50px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 5px;
+      background: linear-gradient(45deg, #667eea, #764ba2);
+      transform: translateX(-100%);
+      transition: transform 0.3s ease;
+    }
+    
+    .card:hover::before {
+      transform: translateX(0);
+    }
+    
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+    }
+    
+    .card h3 {
+      font-size: 1.4rem;
+      color: #667eea;
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    
+    .card-icon {
+      font-size: 2rem;
+      display: inline-block;
+      animation: bounce 2s infinite;
+    }
+    
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+      40% { transform: translateY(-10px); }
+      60% { transform: translateY(-5px); }
+    }
+    
+    .card p {
+      color: #666;
+      line-height: 1.6;
+    }
+    
+    /* Image gallery */
+    .gallery {
+      background: #f8f9ff;
+      padding: 60px 30px;
+      text-align: center;
+    }
+    
+    .gallery h2 {
+      font-size: 2.5rem;
+      color: #667eea;
+      margin-bottom: 40px;
+    }
+    
+    .image-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      margin-top: 40px;
+    }
+    
+    .image-item {
+      position: relative;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+      transition: transform 0.3s ease;
+    }
+    
+    .image-item:hover {
+      transform: scale(1.05);
+    }
+    
+    .image-item img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+    
+    .image-item:hover img {
+      transform: scale(1.1);
+    }
+    
+    /* Contact section */
+    .contact {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      text-align: center;
+      padding: 60px 30px;
+    }
+    
+    .contact h2 {
+      font-size: 2.5rem;
+      margin-bottom: 30px;
+    }
+    
+    .contact-info {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+    
+    .contact-card {
+      background: rgba(255,255,255,0.1);
+      padding: 30px;
+      border-radius: 15px;
+      backdrop-filter: blur(10px);
+      transition: transform 0.3s ease;
+    }
+    
+    .contact-card:hover {
+      transform: translateY(-5px);
+    }
+    
+    .contact-card h3 {
+      font-size: 1.3rem;
+      margin-bottom: 15px;
+    }
+    
+    .highlight {
+      background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+      color: white;
+      padding: 15px 30px;
+      display: inline-block;
+      border-radius: 50px;
+      font-weight: bold;
+      font-size: 1.2rem;
+      animation: glow 2s ease-in-out infinite alternate;
+      margin: 30px 0;
+    }
+    
+    @keyframes glow {
+      from { box-shadow: 0 0 20px rgba(255, 107, 107, 0.3); }
+      to { box-shadow: 0 0 30px rgba(255, 107, 107, 0.6); }
+    }
+    
+    footer {
+      background: #2c3e50;
+      color: white;
+      text-align: center;
+      padding: 30px;
+      font-size: 1rem;
+    }
+    
+    /* Responsive design */
+    @media (max-width: 768px) {
+      header h1 { font-size: 2.5rem; }
+      .features { grid-template-columns: 1fr; }
+      .intro h2, .features-title { font-size: 2rem; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>🏠 AMMA Rajini Boys PG Hostel</h1>
+    <p>Nuzvid</p>
+             <a href="/register.html" class="cta-button" style="display:inline-block;margin:18px 0 0 0;padding:15px 35px;font-size:1.2rem;background:linear-gradient(45deg,#ff6b6b,#ee5a24);color:#fff;border-radius:50px;font-weight:bold;text-decoration:none;box-shadow:0 4px 15px rgba(0,0,0,0.15);transition:all 0.3s;">Register Today!</a>
+
+  </header>
+
+  <main>
+    <section class="intro">
+      <h2>Welcome to Our Family</h2>
+      <p>More than just a hostel - we provide a safe, comfortable, and homely environment with nutritious food, daily supervision, and all modern amenities for students and working professionals.</p>
+    </section>
+
+    <section class="features-section">
+      <h2 class="features-title">✨ Our Premium Facilities</h2>
+      <div class="features">
+        
+        <div class="card">
+          <h3><span class="card-icon">🍛</span> Delicious Homely Food</h3>
+          <p>Fresh, hygienic, and nutritious meals prepared with love, just like home-cooked food.</p>
+        </div>
+
+        <div class="card">
+          <h3><span class="card-icon">🛏</span> Furnished Rooms</h3>
+          <p>Clean, well-furnished rooms with comfortable beds and all necessary furniture.</p>
+        </div>
+
+        <div class="card">
+          <h3><span class="card-icon">🚿</span> Clean Washrooms</h3>
+          <p>Hygienic washrooms and bathrooms maintained daily for your comfort.</p>
+        </div>
+
+        <div class="card">
+          <h3><span class="card-icon">⚡</span> 24/7 Utilities</h3>
+          <p>Round-the-clock water supply and electricity backup available.</p>
+        </div>
+
+        <div class="card">
+          <h3><span class="card-icon">📶</span> Free High-Speed WiFi</h3>
+          <p>Unlimited high-speed internet for studies and entertainment.</p>
+        </div>
+
+        <div class="card">
+          <h3><span class="card-icon">📚</span> Study Areas</h3>
+          <p>Quiet library and dedicated study spaces for focused learning.</p>
+        </div>
+
+        <div class="card">
+          <h3><span class="card-icon">🎥</span> CCTV Security</h3>
+          <p>Complete CCTV surveillance for maximum safety and security.</p>
+        </div>
+
+        <div class="card">
+          <h3><span class="card-icon">🧺</span> Laundry & Parking</h3>
+          <p>Laundry facilities and secure two-wheeler parking available.</p>
+        </div>
+
+      </div>
+
+      <div style="text-align: center; margin-top: 50px;">
+         <a href="/register.html" class="cta-button" style="display:inline-block;margin:18px 0 0 0;padding:15px 35px;font-size:1.2rem;background:linear-gradient(45deg,#ff6b6b,#ee5a24);color:#fff;border-radius:50px;font-weight:bold;text-decoration:none;box-shadow:0 4px 15px rgba(0,0,0,0.15);transition:all 0.3s;">Admissions Open - Apply Today!</a>
+      </div>
+    </section>
+
+    <section class="gallery">
+      <div class="image-grid">
+        <div class="image-item">
+          <img src="https://images.unsplash.com/photo-1555854877-bab0e564b8d5?w=400" alt="Modern hostel room" />
+        </div>
+        <div class="image-item">
+          <img src="https://images.unsplash.com/photo-1567521464027-f127ff144326?w=400" alt="Dining area" />
+        </div>
+        <div class="image-item">
+          <img src="https://images.unsplash.com/photo-1481277542470-605612bd2d61?w=400" alt="Study area" />
+        </div>
+        <div class="image-item">
+          <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400" alt="Common area" />
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <section class="contact">
+    <h2>📍 Contact & Location</h2>
+    <div class="contact-info">
+      <div class="contact-card">
+        <h3>📍 Address</h3>
+        <p>Near Satyanarayana Theatre, Gangadhar Rao Hospital Road, Nuzvid</p>
+      </div>
+      <div class="contact-card">
+        <h3>👨‍💼 Contact Person</h3>
+        <p> G. Satish B.Sc</p>
+      </div>
+      <div class="contact-card">
+        <h3>📱 Phone Numbers</h3>
+        <p>93988 80488<br>85559 42327</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 AMMA Rajini Boys PG Hostel - Nuzvid | Your Trusted Home Away From Home</p>
+  </footer>
+</body>
+</html>
