@@ -27,7 +27,7 @@
       animation: gradientShift 6s ease infinite;
       color: white;
       text-align: center;
-      padding: 60px 20px;
+      padding: 40px 15px; /* Reduced padding for mobile */
       position: relative;
       overflow: hidden;
     }
@@ -55,35 +55,43 @@
     }
     
     header h1 {
-      font-size: 3.5rem;
+      font-size: clamp(2rem, 8vw, 3.5rem); /* Responsive font size */
       margin-bottom: 10px;
       animation: slideInDown 1s ease-out;
       text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
     }
     
     header p {
-      font-size: 1.3rem;
+      font-size: clamp(1rem, 4vw, 1.3rem); /* Responsive font size */
       margin-bottom: 25px;
       animation: slideInUp 1s ease-out 0.3s both;
     }
     
     .cta-button {
       display: inline-block;
-      padding: 15px 30px;
+      padding: 12px 25px; /* Slightly smaller for mobile */
       background: linear-gradient(45deg, #ff6b6b, #ee5a24);
       color: white;
       text-decoration: none;
       border-radius: 50px;
       font-weight: bold;
-      font-size: 1.1rem;
+      font-size: clamp(1rem, 3.5vw, 1.1rem); /* Responsive font size */
       transition: all 0.3s ease;
       animation: pulse 2s infinite;
       box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      /* Mobile-friendly tap target */
+      min-height: 44px;
+      min-width: 44px;
     }
     
     .cta-button:hover {
       transform: translateY(-3px);
       box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+    }
+    
+    /* Touch-friendly button styles */
+    .cta-button:active {
+      transform: translateY(-1px);
     }
     
     @keyframes slideInDown {
@@ -105,7 +113,7 @@
     /* Main content */
     main {
       background: white;
-      margin: -30px auto 0;
+      margin: -20px auto 0; /* Reduced margin for mobile */
       max-width: 1200px;
       border-radius: 20px 20px 0 0;
       box-shadow: 0 -5px 20px rgba(0,0,0,0.1);
@@ -114,23 +122,23 @@
     }
     
     section {
-      padding: 40px 30px;
+      padding: 30px 20px; /* Reduced padding for mobile */
     }
     
     .intro {
       text-align: center;
-      padding: 50px 30px 30px;
+      padding: 40px 20px 30px;
     }
     
     .intro h2 {
-      font-size: 2.5rem;
+      font-size: clamp(1.8rem, 6vw, 2.5rem); /* Responsive font size */
       color: #667eea;
       margin-bottom: 20px;
       animation: fadeInUp 1s ease-out 0.5s both;
     }
     
     .intro p {
-      font-size: 1.2rem;
+      font-size: clamp(1rem, 3.5vw, 1.2rem); /* Responsive font size */
       color: #666;
       max-width: 700px;
       margin: 0 auto;
@@ -145,7 +153,7 @@
     /* Features section */
     .features-title {
       text-align: center;
-      font-size: 2.5rem;
+      font-size: clamp(1.8rem, 6vw, 2.5rem); /* Responsive font size */
       color: #667eea;
       margin-bottom: 40px;
       position: relative;
@@ -163,14 +171,14 @@
     
     .features {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 30px;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Slightly smaller min-width */
+      gap: 20px; /* Reduced gap for mobile */
       margin-top: 40px;
     }
     
     .card {
       background: white;
-      padding: 30px;
+      padding: 25px 20px; /* Reduced padding for mobile */
       border-radius: 15px;
       box-shadow: 0 8px 30px rgba(0,0,0,0.1);
       transition: all 0.3s ease;
@@ -209,12 +217,12 @@
     }
     
     .card:hover {
-      transform: translateY(-10px);
+      transform: translateY(-5px); /* Reduced transform for mobile */
       box-shadow: 0 15px 40px rgba(0,0,0,0.2);
     }
     
     .card h3 {
-      font-size: 1.4rem;
+      font-size: clamp(1.1rem, 4vw, 1.4rem); /* Responsive font size */
       color: #667eea;
       margin-bottom: 15px;
       display: flex;
@@ -223,7 +231,7 @@
     }
     
     .card-icon {
-      font-size: 2rem;
+      font-size: clamp(1.5rem, 5vw, 2rem); /* Responsive icon size */
       display: inline-block;
       animation: bounce 2s infinite;
     }
@@ -237,25 +245,26 @@
     .card p {
       color: #666;
       line-height: 1.6;
+      font-size: clamp(0.9rem, 3vw, 1rem); /* Responsive font size */
     }
     
     /* Image gallery */
     .gallery {
       background: #f8f9ff;
-      padding: 60px 30px;
+      padding: 40px 20px; /* Reduced padding for mobile */
       text-align: center;
     }
     
     .gallery h2 {
-      font-size: 2.5rem;
+      font-size: clamp(1.8rem, 6vw, 2.5rem); /* Responsive font size */
       color: #667eea;
       margin-bottom: 40px;
     }
     
     .image-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Smaller min-width for mobile */
+      gap: 15px; /* Reduced gap for mobile */
       margin-top: 40px;
     }
     
@@ -268,18 +277,18 @@
     }
     
     .image-item:hover {
-      transform: scale(1.05);
+      transform: scale(1.02); /* Reduced scale for mobile */
     }
     
     .image-item img {
       width: 100%;
-      height: 200px;
+      height: 180px; /* Slightly smaller height for mobile */
       object-fit: cover;
       transition: transform 0.3s ease;
     }
     
     .image-item:hover img {
-      transform: scale(1.1);
+      transform: scale(1.05); /* Reduced scale for mobile */
     }
     
     /* Contact section */
@@ -287,46 +296,50 @@
       background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
       color: white;
       text-align: center;
-      padding: 60px 30px;
+      padding: 40px 20px; /* Reduced padding for mobile */
     }
     
     .contact h2 {
-      font-size: 2.5rem;
+      font-size: clamp(1.8rem, 6vw, 2.5rem); /* Responsive font size */
       margin-bottom: 30px;
     }
     
     .contact-info {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 30px;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Smaller min-width for mobile */
+      gap: 20px; /* Reduced gap for mobile */
       margin-top: 40px;
     }
     
     .contact-card {
       background: rgba(255,255,255,0.1);
-      padding: 30px;
+      padding: 25px 20px; /* Reduced padding for mobile */
       border-radius: 15px;
       backdrop-filter: blur(10px);
       transition: transform 0.3s ease;
     }
     
     .contact-card:hover {
-      transform: translateY(-5px);
+      transform: translateY(-3px); /* Reduced transform for mobile */
     }
     
     .contact-card h3 {
-      font-size: 1.3rem;
+      font-size: clamp(1.1rem, 4vw, 1.3rem); /* Responsive font size */
       margin-bottom: 15px;
+    }
+    
+    .contact-card p {
+      font-size: clamp(0.9rem, 3.5vw, 1rem); /* Responsive font size */
     }
     
     .highlight {
       background: linear-gradient(45deg, #ff6b6b, #ee5a24);
       color: white;
-      padding: 15px 30px;
+      padding: 12px 25px; /* Slightly smaller for mobile */
       display: inline-block;
       border-radius: 50px;
       font-weight: bold;
-      font-size: 1.2rem;
+      font-size: clamp(1rem, 4vw, 1.2rem); /* Responsive font size */
       animation: glow 2s ease-in-out infinite alternate;
       margin: 30px 0;
     }
@@ -340,15 +353,79 @@
       background: #2c3e50;
       color: white;
       text-align: center;
-      padding: 30px;
-      font-size: 1rem;
+      padding: 20px; /* Reduced padding for mobile */
+      font-size: clamp(0.9rem, 3vw, 1rem); /* Responsive font size */
     }
     
-    /* Responsive design */
+    /* Enhanced Mobile Responsiveness */
     @media (max-width: 768px) {
-      header h1 { font-size: 2.5rem; }
-      .features { grid-template-columns: 1fr; }
-      .intro h2, .features-title { font-size: 2rem; }
+      header {
+        padding: 30px 15px;
+      }
+      
+      .features {
+        grid-template-columns: 1fr;
+        gap: 15px;
+      }
+      
+      .image-grid {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 10px;
+      }
+      
+      .contact-info {
+        grid-template-columns: 1fr;
+        gap: 15px;
+      }
+      
+      .card {
+        padding: 20px 15px;
+      }
+      
+      .contact-card {
+        padding: 20px 15px;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      header {
+        padding: 25px 10px;
+      }
+      
+      section {
+        padding: 25px 15px;
+      }
+      
+      .intro {
+        padding: 30px 15px 25px;
+      }
+      
+      .gallery {
+        padding: 30px 15px;
+      }
+      
+      .contact {
+        padding: 30px 15px;
+      }
+      
+      .image-item img {
+        height: 150px;
+      }
+    }
+    
+    /* Touch-friendly improvements */
+    @media (hover: none) and (pointer: coarse) {
+      .card:hover {
+        transform: none;
+      }
+      
+      .image-item:hover {
+        transform: none;
+      }
+      
+      .contact-card:hover {
+        transform: none;
+      }
     }
   </style>
 </head>
@@ -356,8 +433,7 @@
   <header>
     <h1>🏠 AMMA Rajini Boys PG Hostel</h1>
     <p>Nuzvid</p>
-             <a href="/register.html" class="cta-button" style="display:inline-block;margin:18px 0 0 0;padding:15px 35px;font-size:1.2rem;background:linear-gradient(45deg,#ff6b6b,#ee5a24);color:#fff;border-radius:50px;font-weight:bold;text-decoration:none;box-shadow:0 4px 15px rgba(0,0,0,0.15);transition:all 0.3s;">Register Today!</a>
-
+    <a href="register.html" class="cta-button">Register Today!</a>
   </header>
 
   <main>
@@ -412,12 +488,13 @@
 
       </div>
 
-      <div style="text-align: center; margin-top: 50px;">
-         <a href="/register.html" class="cta-button" style="display:inline-block;margin:18px 0 0 0;padding:15px 35px;font-size:1.2rem;background:linear-gradient(45deg,#ff6b6b,#ee5a24);color:#fff;border-radius:50px;font-weight:bold;text-decoration:none;box-shadow:0 4px 15px rgba(0,0,0,0.15);transition:all 0.3s;">Admissions Open - Apply Today!</a>
+      <div style="text-align: center; margin-top: 40px;">
+        <a href="register.html" class="cta-button">🎉 Admissions Open - Apply Today!</a>
       </div>
     </section>
 
     <section class="gallery">
+      <h2>📸 Our Hostel Gallery</h2>
       <div class="image-grid">
         <div class="image-item">
           <img src="https://images.unsplash.com/photo-1555854877-bab0e564b8d5?w=400" alt="Modern hostel room" />
@@ -444,17 +521,18 @@
       </div>
       <div class="contact-card">
         <h3>👨‍💼 Contact Person</h3>
-        <p> G. Satish B.Sc</p>
+        <p>G. Satish B.Sc</p>
       </div>
       <div class="contact-card">
         <h3>📱 Phone Numbers</h3>
-        <p>93988 80488<br>85559 42327</p>
+        <p><a href="tel:+919398880488" style="color: white; text-decoration: none;">93988 80488</a><br>
+        <a href="tel:+918555942327" style="color: white; text-decoration: none;">85559 42327</a></p>
       </div>
     </div>
   </section>
 
   <footer>
-    <p>© 2025 AMMA Rajini Boys PG Hostel - Nuzvid | Your Trusted Home Away From Home</p>
+    <p>© 2025 AMMA Rajini Boys PG Hostel - Nuzvid</p>
   </footer>
 </body>
 </html>
