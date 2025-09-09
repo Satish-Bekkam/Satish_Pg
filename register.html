@@ -419,9 +419,15 @@
         additionalInfo: document.getElementById('additional-info').value
       };
       
+      // Determine endpoint based on environment
+      let endpoint = '/api/register';
+      if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+        endpoint = '/register';
+      }
+      
       try {
         // Send data to backend
-        const response = await fetch('/register', {
+        const response = await fetch(endpoint, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(formData)
@@ -432,7 +438,7 @@
           document.getElementById('registerForm').reset();
           setTimeout(() => {
             alert('Registration submitted successfully! We will contact you within 24 hours.');
-            window.location.href = 'Webpage.html';
+            window.location.href = '/index.html';
           }, 1000);
         } else {
           alert('Registration failed: ' + (result.error || 'Unknown error'));
