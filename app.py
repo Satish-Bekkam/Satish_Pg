@@ -10,7 +10,7 @@ SMTP_SERVER = 'smtp.gmail.com'
 SMTP_PORT = 587
 SMTP_USERNAME = 'satishbekkam9999@gmail.com'  # Replace with your Gmail
 SMTP_PASSWORD = 'vyie kmgx wdye rgyq'      # Use App Password if 2FA enabled
-ADMIN_EMAIL = 'satishbekkam9999@gmail.com'
+ADMIN_EMAIL = 'satishgope1@gmail.com'
 
 @app.route('/')
 def index():
@@ -32,7 +32,7 @@ def register():
     room_type = data.get('roomType')
     additional_info = data.get('additionalInfo')
 
-    subject = 'PG Hostel Registration'
+    subject = 'Hostel Registration'
     body = f"""
     Name: {name}
     Phone Number: {mobile}

@@ -19,8 +19,8 @@ export default async function handler(req, res) {
 
   const mailOptions = {
     from: process.env.GMAIL_USER || 'satishbekkam9999@gmail.com',
-    to: 'satishbekkam9999@gmail.com',
-    subject: 'PG Hostel Registration',
+    to: 'satishgope1@gmail.com',
+    subject: 'Hostel Registration',
     text: `\nName: ${name}\nPhone Number: ${mobile}\nAge: ${age}\nSchool/College/Workplace: ${institute}\nCourse/Occupation: ${course}\nAddress: ${address}\nRoom Preference: ${roomType}\nAdditional Information: ${additionalInfo}\n`
   };
 
